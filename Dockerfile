@@ -12,6 +12,7 @@ CMD ["/sbin/my_init"]
 RUN usermod -u 99 nobody && \
 usermod -g 100 nobody && \
 
+add-apt-repository ppa:fkrull/deadsnakes && \
 add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse" && \
 add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe multiverse" && \
 apt-get update -q && \
