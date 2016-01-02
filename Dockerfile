@@ -12,13 +12,13 @@ CMD ["/sbin/my_init"]
 RUN usermod -u 99 nobody && \
 usermod -g 100 nobody && \
 
-add-apt-repository ppa:fkrull/deadsnakes && \
 add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe multiverse" && \
 add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates universe multiverse" && \
 apt-get update -q && \
 
 # Install Dependencies
-apt-get install -qy python python-cheetah ca-certificates wget unrar unzip && \
+apt-get install -qy build-essential python-pip python-dev libssl-dev libffi-dev python-cheetah ca-certificates wget unrar unzip && \
+pip install -U setuptools pip pyasn1 ndg-httpsclient pyopenssl==0.13.1 && \
 
 # Install SickRage 4.2.0.4 (2015-11-22)
 mkdir /opt/sickrage && \
